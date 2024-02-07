@@ -37,7 +37,7 @@
                 <div class="compose-attachments">
                     <div class="view-container">
                         <div class="view-item view-attachment" v-for="fileName in attachments">
-                            <a :href="`http://localhost:8080/body/attachment/${userId}/${id}/${fileName}`">{{ fileName }}</a>
+                            <a :href="`https://email-server-back.onrender.com/body/attachment/${userId}/${id}/${fileName}`">{{ fileName }}</a>
                             <button title="delete" class="delete" @click="deleteAttachment(fileName)">x</button>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
             const id = this.$route.params.id
             if (id=='new') {
                 this.id = crypto.randomUUID()
-                fetch(`http://localhost:8080/create/${this.userId}`,{
+                fetch(`https://email-server-back.onrender.com/create/${this.userId}`,{
                     method: 'POST',
                     body: this.id
                 })
@@ -92,7 +92,7 @@
                 })
             }
             else {
-                fetch(`http://localhost:8080/mainfolders/getdraft/${this.userId}/${id}`)
+                fetch(`https://email-server-back.onrender.com/mainfolders/getdraft/${this.userId}/${id}`)
                 .then(res=>res.json())
                 .then(mail=> {
                     this.id = id
@@ -171,7 +171,7 @@
                 this.sendDeleteAttachment(fileName)
             },
             sendBodyText() {
-                fetch(`http://localhost:8080/body/text/${this.userId}/${this.id}`, {
+                fetch(`https://email-server-back.onrender.com/body/text/${this.userId}/${this.id}`, {
                     method: 'PUT',
                     body: this.bodyText
                 })
@@ -180,7 +180,7 @@
                 }) 
             },
             sendNewTO() {
-                fetch(`http://localhost:8080/header/addto/${this.userId}/${this.id}`, {
+                fetch(`https://email-server-back.onrender.com/header/addto/${this.userId}/${this.id}`, {
                     method: 'POST',
                     body: this.currentTo
                 })
@@ -189,7 +189,7 @@
                 }) 
             },
             sendRemoveTo(email) {
-                fetch(`http://localhost:8080/header/removeto/${this.id}/${email}`, {
+                fetch(`https://email-server-back.onrender.com/header/removeto/${this.id}/${email}`, {
                     method: 'DELETE'
                 })
                 .catch(e=> {
@@ -197,7 +197,7 @@
                 }) 
             },
             sendSubject() {
-                fetch(`http://localhost:8080/header/subject/${this.userId}/${this.id}`, {
+                fetch(`https://email-server-back.onrender.com/header/subject/${this.userId}/${this.id}`, {
                     method: 'PUT',
                     body: this.subject
                 })
@@ -206,7 +206,7 @@
                 }) 
             },
             sendPriority() {
-                fetch(`http://localhost:8080/header/priority/${this.userId}/${this.id}`, {
+                fetch(`https://email-server-back.onrender.com/header/priority/${this.userId}/${this.id}`, {
                     method: 'PUT',
                     body: this.priority
                 })
@@ -218,7 +218,7 @@
                 let formData = new FormData();
                 formData.append('file', this.$refs.fileInput.files[0]);
 
-                fetch(`http://localhost:8080/body/attachment/${this.userId}/${this.id}`, {
+                fetch(`https://email-server-back.onrender.com/body/attachment/${this.userId}/${this.id}`, {
                     method: 'POST',
                     body: formData
                 })
@@ -227,7 +227,7 @@
                 });
             },
             sendDeleteAttachment(fileName) {
-                fetch(`http://localhost:8080/body/attachment/${this.id}/${fileName}`,{
+                fetch(`https://email-server-back.onrender.com/body/attachment/${this.id}/${fileName}`,{
                     method: 'DELETE'
                 })
                 .catch(e=>{
@@ -239,7 +239,7 @@
                     this.toError = 'toNeeded'
                     return
                 }
-                fetch(`http://localhost:8080/mails/Sendmail/${this.userId}/${this.id}`,{
+                fetch(`https://email-server-back.onrender.com/mails/Sendmail/${this.userId}/${this.id}`,{
                     method: 'PUT',
                     headers: {
                         'Content-Type': 'application/json',

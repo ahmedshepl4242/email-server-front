@@ -57,7 +57,7 @@ methods: {
     });
   },  async getuserfolders() {
 try {
-  const response = await axios.get(`http://localhost:8080/userfolders/getuserfolders/${this.$route.query.userid}`);
+  const response = await axios.get(`https://email-server-back.onrender.com/userfolders/getuserfolders/${this.$route.query.userid}`);
   this.userfolders = response.data;
   console.log(this.userfolders);
   console.log(folder)
@@ -71,7 +71,7 @@ try {
   this.closeModal()   
 },async moveMail() {
     try {
-      const apiUrl = `http://localhost:8080/mails/movemails/${this.$route.query.userid}`;
+      const apiUrl = `https://email-server-back.onrender.com/mails/movemails/${this.$route.query.userid}`;
 
       const moveRequest = {
         from: this.f,

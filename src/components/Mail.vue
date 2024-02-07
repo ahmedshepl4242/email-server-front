@@ -22,7 +22,7 @@
 
                 <div class="view-container">
                     <div class="view-attachment" v-for="fileName in attachments">
-                        <a :href="`http://localhost:8080/body/attachment/${userId}/${id}/${fileName}`">{{ fileName }}</a>
+                        <a :href="`https://email-server-back.onrender.com/body/attachment/${userId}/${id}/${fileName}`">{{ fileName }}</a>
                     </div>
                 </div>
             </div>
@@ -52,9 +52,9 @@ export default {
     },
     async mounted() {
         const response = await axios.get(
-    `http://localhost:8080/mainfolders/${this.folderPath}/${this.userId}/${this.id}`
+    `https://email-server-back.onrender.com/mainfolders/${this.folderPath}/${this.userId}/${this.id}`
    );
-        // fetch(`http://localhost:8080/mainfolders/${this.folderPath}/${this.userId}/${this.id}`)
+        // fetch(`https://email-server-back.onrender.com/mainfolders/${this.folderPath}/${this.userId}/${this.id}`)
         // .then(res=>res.json())
         // .then(mail=> {
          let mail=response.data

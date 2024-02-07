@@ -114,7 +114,7 @@ export default {
       this.sortway = this.$refs.sortRef.way;
       console.log(this.sortway);
       const response = await axios.get(
-        `http://localhost:8080/sort/getsorted/${this.$route.query.userid}/${this.sortway}/inbox`
+        `https://email-server-back.onrender.com/sort/getsorted/${this.$route.query.userid}/${this.sortway}/inbox`
       );
 
       this.emails = response.data;
@@ -171,7 +171,7 @@ export default {
 
       try {
         const response = await axios.post(
-          "http://localhost:8080/search",
+          "https://email-server-back.onrender.com/search",
           null,
           {
             params: {
@@ -195,7 +195,7 @@ export default {
     async getemails() {
       try {
         const response = await axios.get(
-          `http://localhost:8080/mainfolders/getsentfolder/${this.$route.query.userid}`
+          `https://email-server-back.onrender.com/mainfolders/getsentfolder/${this.$route.query.userid}`
         );
         this.emails = response.data;
         this.selectedEmails = [];
@@ -229,7 +229,7 @@ export default {
       };
 
       const response = await axios.delete(
-        `http://localhost:8080/mails/deletemails/${this.$route.query.userid}`,
+        `https://email-server-back.onrender.com/mails/deletemails/${this.$route.query.userid}`,
         { data: deleteRequest }
       );
       console.log.response.data;
@@ -268,7 +268,7 @@ export default {
         ids: this.deletedemails,
       };
 
-      const apiUrl = `http://localhost:8080/mails/deletemails/${this.$route.query.userid}`;
+      const apiUrl = `https://email-server-back.onrender.com/mails/deletemails/${this.$route.query.userid}`;
 
       axios
         .delete(apiUrl, { data: deleteRequest })

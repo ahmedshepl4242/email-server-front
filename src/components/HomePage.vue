@@ -142,7 +142,7 @@ export default {
  console.log("delete");
       try {
         const response = await axios.post(
-          `http://localhost:8080/account/delete`,null,
+          `https://email-server-back.onrender.com/account/delete`,null,
 
         { params: { id: x}}
         );
@@ -160,7 +160,7 @@ export default {
     async deleteUserFolder(id) {
       try {
         const response = await axios.delete(
-          `http://localhost:8080/userfolders/deleteuserfolder/${this.$route.query.userid}`,
+          `https://email-server-back.onrender.com/userfolders/deleteuserfolder/${this.$route.query.userid}`,
           { data: id }
         );
         console.log("delete");
@@ -171,7 +171,7 @@ export default {
     async getuserfolders() {
       try {
         const response = await axios.get(
-          `http://localhost:8080/userfolders/getuserfolders/${this.$route.query.userid}`
+          `https://email-server-back.onrender.com/userfolders/getuserfolders/${this.$route.query.userid}`
         );
         this.userfolders = response.data;
         console.log(this.userfolders);
@@ -183,7 +183,7 @@ export default {
     async getAccount() {
       try {
         const response = await axios.get(
-          `http://localhost:8080/account/getaccount/${this.$route.query.userid}`
+          `https://email-server-back.onrender.com/account/getaccount/${this.$route.query.userid}`
         );
         this.account = response.data;
         console.log(this.account);

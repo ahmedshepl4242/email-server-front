@@ -32,7 +32,7 @@ export default {
     async addcontact() {
       try {
         const response = await axios.post(
-          "http://localhost:8080/contacts/addContact",
+          "https://email-server-back.onrender.com/contacts/addContact",
           null,
           {
             params: {

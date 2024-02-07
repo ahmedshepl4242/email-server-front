@@ -163,7 +163,7 @@ export default {
 
       try {
         const response = await axios.post(
-          `http://localhost:8080/sign/login`,
+          `https://email-server-back.onrender.com/sign/login`,
           null,
           {
             params: {
@@ -201,7 +201,7 @@ export default {
 
       try {
         const response = await axios.post(
-          `http://localhost:8080/sign/signup`,
+          `https://email-server-back.onrender.com/sign/signup`,
           null,
           {
             params: {

@@ -75,7 +75,7 @@ export default {
 
       try {
         const response = await axios.post(
-          "http://localhost:8080/contacts/search",
+          "https://email-server-back.onrender.com/contacts/search",
           null,
           {
             params: {
@@ -109,7 +109,7 @@ export default {
         // Send a PUT request for editing
 
         const response = await axios.post(
-          "http://localhost:8080/contacts/editContact",
+          "https://email-server-back.onrender.com/contacts/editContact",
           null,
           {
             params: {
@@ -134,7 +134,7 @@ export default {
         // Send a PUT request for editing
 
         const response = await axios.post(
-          "http://localhost:8080/contacts/deleteContact",
+          "https://email-server-back.onrender.com/contacts/deleteContact",
           null,
           {
             params: {
@@ -156,7 +156,7 @@ export default {
         // Send a PUT request for editing
 
         const response = await axios.post(
-          "http://localhost:8080/contacts/sortContacts",
+          "https://email-server-back.onrender.com/contacts/sortContacts",
           null,
           {
             params: {
